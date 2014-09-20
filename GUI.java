@@ -7,11 +7,14 @@ import java.util.HashSet;
 import java.awt.*;
 import java.awt.image.*;
 import javax.swing.*;
+
+
+
 public class GUI extends JFrame {
 
 
-	 GUI() {
-	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	GUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 		try {
@@ -33,24 +36,11 @@ public class GUI extends JFrame {
 				double B = arr[i];
 				double G = arr[i+1];
 				double R = arr[i+2];
-
-				//R/=255.0;G/=255.0;B/=255.0;
-
 				double level = R * 0.2126 + G * 0.7152 + B * 0.0722;
-
-
-
 				arr2[c++] = level;
 			}
 
 			LSD lsd = new LSD();
-
-		
-
-
-
-
-			System.out.println(arr.length);
 
 			double [] out = lsd.lsd(arr2,x,y);
 
@@ -61,32 +51,20 @@ public class GUI extends JFrame {
 						out[7 * i + 2], out[7 * i + 3]));
 
 			}
-
 			
 			for ( Line l : lines) {
 				g2d.drawLine((int)l.x1,(int)l.y1,(int)l.x2,(int)l.y2);
-				
-
 			}
 
-
-			System.out.println(lsd.n_out);
-		 
 			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-			
 			add(picLabel);
 
 
 		} catch (IOException e) {
 
 		}
-		
-
-		
 
 		setSize(600,600);
-
-	        //Display the window.
         	setVisible(true);
 	}
 
