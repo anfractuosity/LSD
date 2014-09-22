@@ -13,3 +13,7 @@ Compilation
 Simply run : javac *.java
 
 Then java GUI
+
+ToDO
+======================
+* Add methods for accepting java images in LSD.java
