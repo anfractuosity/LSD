@@ -17,3 +17,5 @@ Then java GUI
 ToDo
 ======================
 * Add methods for accepting java images in LSD.java
+* Tidy up my comments in LSD.java
+* Instead of using error() throw std. exceptions when necessary
