@@ -1,10 +1,105 @@
+/*----------------------------------------------------------------------------
+
+  LSD - Line Segment Detector on digital images
+
+  This code is part of the following publication and was subject
+  to peer review:
+
+    "LSD: a Line Segment Detector" by Rafael Grompone von Gioi,
+    Jeremie Jakubowicz, Jean-Michel Morel, and Gregory Randall,
+    Image Processing On Line, 2012. DOI:10.5201/ipol.2012.gjmr-lsd
+    http://dx.doi.org/10.5201/ipol.2012.gjmr-lsd
+
+  Copyright (c) 2007-2011 rafael grompone von gioi <grompone@gmail.com>
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+  ----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/** @file lsd.c
+    
+    LSD module code
+    @author rafael grompone von gioi <grompone@gmail.com>
+
+    Java port 
+    @author chris <anfractuosity@anfractuosity.com>
+
+ */
+/*----------------------------------------------------------------------------*/
+
+*----------------------------------------------------------------------------*/
+/** @mainpage LSD code documentation
+
+    This is an implementation of the Line Segment Detector described
+    in the paper:
+
+      "LSD: A Fast Line Segment Detector with a False Detection Control"
+      by Rafael Grompone von Gioi, Jeremie Jakubowicz, Jean-Michel Morel,
+      and Gregory Randall, IEEE Transactions on Pattern Analysis and
+      Machine Intelligence, vol. 32, no. 4, pp. 722-732, April, 2010.
+
+    and in more details in the CMLA Technical Report:
+
+      "LSD: A Line Segment Detector, Technical Report",
+      by Rafael Grompone von Gioi, Jeremie Jakubowicz, Jean-Michel Morel,
+      Gregory Randall, CMLA, ENS Cachan, 2010.
+
+    The version implemented here includes some further improvements
+    described in the following publication, of which this code is part:
+
+      "LSD: a Line Segment Detector" by Rafael Grompone von Gioi,
+      Jeremie Jakubowicz, Jean-Michel Morel, and Gregory Randall,
+      Image Processing On Line, 2012. DOI:10.5201/ipol.2012.gjmr-lsd
+      http://dx.doi.org/10.5201/ipol.2012.gjmr-lsd
+
+    The module's main function is lsd().
+
+    The source code is contained in two files: lsd.h and lsd.c.
+
+    HISTORY:
+    - version 1.6 - nov 2011:
+                              - changes in the interface,
+                              - max_grad parameter removed,
+                              - the factor 11 was added to the number of test
+                                to consider the different precision values
+                                tested,
+                              - a minor bug corrected in the gradient sorting
+                                code,
+                              - the algorithm now also returns p and log_nfa
+                                for each detection,
+                              - a minor bug was corrected in the image scaling,
+                              - the angle comparison in "isaligned" changed
+                                from < to <=,
+                              - "eps" variable renamed "log_eps",
+                              - "lsd_scale_region" interface was added,
+                              - minor changes to comments.
+    - version 1.5 - dec 2010: Changes in 'refine', -W option added,
+                              and more comments added.
+    - version 1.4 - jul 2010: lsd_scale interface added and doxygen doc.
+    - version 1.3 - feb 2010: Multiple bug correction and improved code.
+    - version 1.2 - dec 2009: First full Ansi C Language version.
+    - version 1.1 - sep 2009: Systematic subsampling to scale 0.8 and
+                              correction to partially handle "angle problem".
+    - version 1.0 - jan 2009: First complete Megawave2 and Ansi C Language
+                              version.
+
+    @author rafael grompone von gioi <grompone@gmail.com>
+ */
+/*----------------------------------------------------------------------------*/
+
 import java.util.ArrayList;
-
-//import android.graphics.Point;
-
-
-
-
 import java.awt.Point;
 
 /*----------------------------------------------------------------------------*/
