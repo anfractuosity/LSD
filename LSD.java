@@ -34,7 +34,7 @@
     @author rafael grompone von gioi <grompone@gmail.com>
 
     Java port 
-    @author chris <anfractuosity@anfractuosity.com>
+    @author chris anfractuosity.com
 
  */
 /*----------------------------------------------------------------------------*/
