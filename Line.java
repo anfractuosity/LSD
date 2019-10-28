@@ -1,7 +1,7 @@
 /**
     LSD Java Port
     
-    Copyright (C) 2014  Chris - anfractuosity@anfractuosity.com
+    Copyright (C) 2014  Chris - anfractuosity.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
