@@ -64,11 +64,8 @@ public class GUI extends JFrame {
 			double [] out = lsd.lsd(arr2,x,y);
 
 			for(int i = 0; i < lsd.n_out; i++) {
-				for (int j = 0; j < 7; j++)
-				
 				lines.add(new Line(out[7 * i + 0], out[7 * i + 1],
 						out[7 * i + 2], out[7 * i + 3]));
-
 			}
 			
 			for ( Line l : lines) {
